@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mi aventura en el Tour du Mont Blanc — 330 km · 8.300 m+</title>
-<meta name="description" content="Crónica del Tour du Mont Blanc Cyclo: 330 km, 8.300 m de desnivel, siete puertos y una tormenta en el Grand Saint Bernard.">
+<meta name="description" content="Crónica del Tour du Mont Blanc Cyclo: 330 km, 8.300 m de desnivel, siete puertos, tres países y una tormenta en el Grand Saint Bernard. / My Tour du Mont Blanc Cyclo story.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --noche:#10161f;        /* salida a las 5:00 */
+    --noche:#10161f;
     --noche-2:#1a2330;
-    --papel:#f7f6f2;        /* asfalto seco */
+    --papel:#f7f6f2;
     --tinta:#232a33;
-    --rojo:#d1342c;         /* luciérnagas rojas / maillot de la montaña */
+    --rojo:#d1342c;
     --gris:#7d8590;
     --linea:#dcd9d1;
     --display:'Barlow Condensed',sans-serif;
@@ -22,143 +22,301 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .luz{animation:none!important}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);line-height:1.75;font-size:1.06rem}
 
-  /* ---------- HERO: noche de salida ---------- */
-  .hero{background:linear-gradient(180deg,var(--noche) 0%,var(--noche-2) 78%,var(--papel) 100%);color:#eef1f5;text-align:center;padding:5.5rem 1.5rem 4.5rem;position:relative;overflow:hidden}
-  .hero .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.35em;text-transform:uppercase;font-size:.85rem;color:var(--rojo)}
-  .hero h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.02;letter-spacing:.02em;margin:.6rem 0 1.2rem}
-  .hero .datos{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:#aeb7c2}
-  .hero .datos b{color:#fff;font-weight:700;margin-right:.35rem}
-  /* reguero de luciérnagas rojas */
-  .luces{position:absolute;left:0;right:0;bottom:2.2rem;height:2px;pointer-events:none}
-  .luz{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--rojo);box-shadow:0 0 8px 2px rgba(209,52,44,.55);opacity:.85;animation:rodar 9s linear infinite}
-  .luz:nth-child(2){animation-delay:1.6s;animation-duration:11s;transform:translateY(-7px)}
-  .luz:nth-child(3){animation-delay:3.4s;animation-duration:8s;transform:translateY(5px)}
-  .luz:nth-child(4){animation-delay:5.2s;animation-duration:12s;transform:translateY(-3px)}
-  .luz:nth-child(5){animation-delay:7s;animation-duration:10s;transform:translateY(8px)}
-  @keyframes rodar{from{left:-3%}to{left:103%}}
+  /* ---------- idioma ---------- */
+  body.lang-es .en{display:none}
+  body.lang-en .es{display:none}
+  #btn-idioma{position:fixed;top:1rem;right:1rem;z-index:50;font-family:var(--display);font-weight:700;
+    font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--rojo);
+    border:2px solid #fff2;border-radius:3px;padding:.5rem 1.1rem;cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,.35)}
+  #btn-idioma:hover{filter:brightness(1.12)}
+  #btn-idioma:focus-visible{outline:3px solid #fff;outline-offset:2px}
 
-  /* ---------- PERFIL DE ETAPA ---------- */
-  .perfil{max-width:980px;margin:-1px auto 0;padding:2.5rem 1.25rem 1rem}
-  .perfil h2{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.25em;font-size:.9rem;color:var(--gris);text-align:center;margin-bottom:1rem}
-  .perfil svg{width:100%;height:auto;display:block}
+  /* ---------- HERO ---------- */
+  .hero{background:
+      linear-gradient(180deg,rgba(16,22,31,.82) 0%,rgba(16,22,31,.68) 55%,rgba(16,22,31,.92) 100%),
+      url('14-meta.jpg') center 35%/cover no-repeat;
+    color:#eef1f5;text-align:center;padding:6.5rem 1.5rem 5rem}
+  .hero .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.35em;text-transform:uppercase;font-size:.85rem;color:#ff7b74}
+  .hero h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.02;letter-spacing:.02em;margin:.6rem 0 1.2rem;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  .hero .datos{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:#c2cad4}
+  .hero .datos b{color:#fff;font-weight:700;margin-right:.35rem}
+
+  /* ---------- PERFIL OFICIAL ---------- */
+  .perfil{max-width:1020px;margin:0 auto;padding:2.8rem 1.25rem .5rem}
+  .perfil h2{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.25em;font-size:.9rem;color:var(--gris);text-align:center;margin-bottom:1.2rem}
+  .perfil img{width:100%;height:auto;display:block}
 
   /* ---------- CRÓNICA ---------- */
-  article{max-width:680px;margin:0 auto;padding:2.5rem 1.4rem 3rem}
+  article{max-width:720px;margin:0 auto;padding:2.2rem 1.4rem 3rem}
   article p{margin-bottom:1.4rem;text-align:justify;hyphens:auto}
-  article p:first-of-type::first-letter{font-family:var(--display);font-weight:700;font-size:3.6em;float:left;line-height:.82;padding:.06em .12em 0 0;color:var(--rojo)}
+  .hora{font-family:var(--display);font-weight:700;font-size:1.55em;line-height:1;color:var(--rojo);letter-spacing:.02em}
   .puerto{display:flex;align-items:baseline;gap:.8rem;margin:2.6rem 0 1.2rem;border-bottom:2px solid var(--tinta);padding-bottom:.35rem}
   .puerto .km{font-family:var(--display);font-weight:700;color:var(--rojo);font-size:1rem;letter-spacing:.08em;white-space:nowrap}
   .puerto h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.5rem;letter-spacing:.04em}
   .puerto .alt{margin-left:auto;font-family:var(--display);font-weight:500;color:var(--gris);font-size:.95rem;letter-spacing:.1em;white-space:nowrap}
 
+  /* ---------- FOTOS ---------- */
+  figure{margin:2rem 0}
+  figure img{width:100%;height:auto;display:block;border-radius:4px}
+  figcaption{font-family:var(--display);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--gris);margin-top:.55rem;text-align:center}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  .duo figure{margin:0}
+  .duo img{height:100%;object-fit:cover;aspect-ratio:3/4}
+  @media(max-width:560px){.duo{grid-template-columns:1fr}.duo img{aspect-ratio:4/3}}
+
   /* ---------- FICHA FINAL ---------- */
-  .ficha{background:var(--noche);color:#eef1f5;padding:3.5rem 1.5rem;text-align:center}
+  .ficha{background:var(--noche);color:#eef1f5;padding:3.5rem 1.5rem 2.5rem;text-align:center}
   .ficha .grid{max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem}
   .ficha .num{font-family:var(--display);font-weight:700;font-size:2.6rem;line-height:1}
   .ficha .num span{color:var(--rojo)}
   .ficha .lbl{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;color:#aeb7c2;margin-top:.4rem}
   .cierre{max-width:680px;margin:2.8rem auto 0;font-style:italic;font-size:1.15rem;color:#dfe4ea}
+
+  /* ---------- CONTACTO ---------- */
+  .contacto{background:var(--noche);text-align:center;padding:1.5rem 1.5rem 3.2rem}
+  .contacto p{font-family:var(--display);text-transform:uppercase;letter-spacing:.2em;font-size:.85rem;color:#aeb7c2;margin-bottom:1rem}
+  #btn-email{display:inline-block;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#fff;background:var(--rojo);padding:.7rem 2.2rem;border-radius:3px;text-decoration:none}
+  #btn-email:hover{filter:brightness(1.12)}
+  #btn-email:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
   footer{background:var(--noche);color:#5d6673;text-align:center;font-family:var(--display);letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;padding:0 1rem 2rem}
 </style>
 </head>
-<body>
+<body class="lang-es">
+
+<button id="btn-idioma" type="button" aria-label="Switch language">🇬🇧 English</button>
 
 <header class="hero">
-  <p class="eyebrow">Crónica ciclista · Alpes · Julio 2026</p>
-  <h1>Mi aventura en el<br>Tour du Mont Blanc</h1>
+  <p class="eyebrow"><span class="es">Crónica ciclista · Alpes · Julio 2026</span><span class="en">A cycling story · The Alps · July 2026</span></p>
+  <h1><span class="es">Mi aventura en el<br>Tour du Mont Blanc</span><span class="en">My Tour du<br>Mont Blanc adventure</span></h1>
   <div class="datos">
     <span><b>330</b>km</span>
     <span><b>8.300</b>m+</span>
-    <span><b>7</b>puertos</span>
-    <span><b>3</b>países</span>
+    <span><b>7</b><span class="es">puertos</span><span class="en">climbs</span></span>
+    <span><b>3</b><span class="es">países</span><span class="en">countries</span></span>
     <span><b>17h02</b>total</span>
-  </div>
-  <div class="luces" aria-hidden="true">
-    <span class="luz"></span><span class="luz"></span><span class="luz"></span><span class="luz"></span><span class="luz"></span>
   </div>
 </header>
 
-<section class="perfil" aria-label="Perfil de la etapa">
-  <h2>El perfil de la bestia</h2>
-  <svg viewBox="0 0 1000 300" role="img" aria-label="Perfil de elevación: Les Saisies, Col des Montets, Forclaz, Champex, Grand Saint Bernard, Petit Saint Bernard, Cormet de Roselend y regreso a Les Saisies">
-    <defs>
-      <linearGradient id="relleno" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#232a33" stop-opacity=".16"/>
-        <stop offset="1" stop-color="#232a33" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <!-- líneas de altitud -->
-    <g stroke="#dcd9d1" stroke-width="1">
-      <line x1="30" y1="70" x2="985" y2="70"/><line x1="30" y1="150" x2="985" y2="150"/><line x1="30" y1="230" x2="985" y2="230"/>
-    </g>
-    <g font-family="Barlow Condensed" font-size="13" fill="#7d8590">
-      <text x="0" y="74">2500</text><text x="0" y="154">1500</text><text x="8" y="234">500</text>
-    </g>
-    <!-- perfil (km 0-330 → x 30-985 ; 400m→262, 2500m→70) -->
-    <path d="M30,158 L75,218 L140,213 L175,208 L195,183 L225,222 L260,258 L305,158 L330,220 L440,70 L560,248 L650,215 L700,90 L755,232 L810,130 L865,240 L985,158 L985,300 L30,300 Z" fill="url(#relleno)" stroke="none"/>
-    <path d="M30,158 L75,218 L140,213 L175,208 L195,183 L225,222 L260,258 L305,158 L330,220 L440,70 L560,248 L650,215 L700,90 L755,232 L810,130 L865,240 L985,158" fill="none" stroke="#232a33" stroke-width="2.5" stroke-linejoin="round"/>
-    <!-- cimas -->
-    <g fill="#d1342c">
-      <circle cx="195" cy="183" r="4"/><circle cx="305" cy="158" r="4"/><circle cx="440" cy="70" r="4"/><circle cx="700" cy="90" r="4"/><circle cx="810" cy="130" r="4"/><circle cx="985" cy="158" r="4"/>
-    </g>
-    <g font-family="Barlow Condensed" font-size="14" font-weight="600" fill="#232a33" text-anchor="middle">
-      <text x="30" y="140">SALIDA · LES SAISIES</text>
-      <text x="195" y="168">MONTETS</text>
-      <text x="300" y="143">CHAMPEX</text>
-      <text x="440" y="55">GRAND ST BERNARD · 2.450 m</text>
-      <text x="700" y="75">PETIT ST BERNARD</text>
-      <text x="822" y="115">ROSELEND</text>
-      <text x="950" y="140">META</text>
-    </g>
-    <g font-family="Barlow Condensed" font-size="12" fill="#7d8590" text-anchor="middle">
-      <text x="30" y="290">km 0</text><text x="330" y="290">km 110</text><text x="560" y="290">km 200</text><text x="755" y="290">km 273</text><text x="985" y="290">km 330</text>
-    </g>
-  </svg>
+<section class="perfil">
+  <h2><span class="es">El perfil de la bestia</span><span class="en">The profile of the beast</span></h2>
+  <img src="perfil.png" alt="Perfil oficial de la etapa: Les Saisies, Vaudagne, Col des Montets, Col de la Forclaz, Champex, Col du Grand Saint Bernard, Col du Petit Saint Bernard, Cormet de Roselend y regreso a Les Saisies. 330 km.">
 </section>
 
 <article>
-  <p>3:15 de la madrugada. Suena la primera de las tres alarmas que me había puesto. En la vida me había levantado tan pronto, y ni que decir tiene que apenas dormí esa noche. La salida era a las 5:00 y no quedaba otra si quería desayunar con tiempo mis tostadas de aceite, plátano y tortitas de avena con miel, junto a una buena dosis de café.</p>
-  <p>La previsión del tiempo no era buena: daban lluvias desde las 12:00 hasta las 20:00, justo en los pasos por los puertos más altos. Como la organización permitía depositar bolsas en ellos, el día de antes había mandado a esos puntos toda la ropa de invierno que había podido reunir. No quería coger una hipotermia en las bajadas; con la vez de la Marmotte ya tuve bastante.</p>
-  <p>Me asomo a la ventana del apartamento que hemos alquilado en Les Saisies —menuda estación de esquí alpina más bonita, grata sorpresa— y está cayendo el diluvio universal. Me vengo abajo: la previsión era de salida seca. Salir de noche y descender el puerto lloviendo no me apetece lo más mínimo. Llego a valorar si volverme a la cama, pero llegados a este punto habrá que tomar la salida. Por suerte, pese a estar a 1.600 m de altitud, la temperatura no es fría, unos 16 grados.</p>
-  <p>4:30. Salgo de casa en la bici hacia la salida, sin prisa. Por suerte ha parado de llover, aunque evidentemente está todo mojado y peligroso. Llego con 15 minutos de margen; hay bastantes corredores ya, pero quiero quedarme de los últimos: pienso descender muy lentamente. Una mezcla de «qué hago aquí» y «qué mala suerte tengo con el tiempo» me invade, pero las ganas de acabar semejante reto son más fuertes.</p>
-  <p>5:00. Pistoletazo de salida. 580 valientes descendiendo por la carretera oscura, bien iluminada por todas las luces, como un reguero de luciérnagas rojas. Por fin se acaba el descenso; iré de los últimos seguro, he bajado extremando las precauciones. Enseguida el terreno se pone hacia arriba. Los dos primeros puertos son fáciles, Vaudagne y Col des Montets, lo que vendrían a ser de tercera categoría. Amanece pronto en los Alpes: a las 6:00 ya es totalmente de día y va a lucir un sol radiante en la primera parte de la ruta. Eso me anima. La visión del Mont Blanc desde Chamonix es espectacular, menuda montaña.</p>
+  <!-- ============ ESPAÑOL ============ -->
+  <div class="es">
+    <p><span class="hora">3:15</span> de la madrugada. Suena la primera de las tres alarmas que me había puesto. En la vida me había levantado tan pronto, y ni que decir tiene que apenas dormí esa noche. La salida era a las 5:00 y no quedaba otra si quería desayunar con tiempo mis tostadas de aceite, plátano y tortitas de avena con miel, junto a una buena dosis de café.</p>
+    <p>La previsión del tiempo no era buena: daban lluvias desde las 12:00 hasta las 20:00, justo en los pasos por los puertos más altos. Como la organización permitía depositar bolsas en ellos, el día de antes había mandado a esos puntos toda la ropa de invierno que había podido reunir. No quería coger una hipotermia en las bajadas, con la vez de la Marmotte ya tuve bastante.</p>
+    <p>Salgo a la terraza del apartamento que hemos alquilado en Les Saisies —menuda estación de esquí alpina más bonita, grata sorpresa— y está cayendo el diluvio universal. Me vengo abajo, la previsión era de salida seca. Salir de noche y descender el puerto lloviendo no me apetece lo más mínimo. Llego a valorar si volverme a la cama, pero llegados a este punto habrá que tomar la salida, demasiados meses preparando esto para retirarse antes de empezar. Por suerte, pese a estar a 1.600 m de altitud, la temperatura no es fría, unos 17 grados.</p>
+    <p>4:30. Salgo de casa en la bici hacia la salida, sin prisa. Por suerte ha parado de llover, aunque evidentemente está todo mojado y peligroso. Llego con 15 minutos de margen, hay bastantes corredores ya, pero quiero quedarme de los últimos, pienso descender muy lentamente. Una mezcla de "qué hago aquí" y "qué mala suerte tengo con el tiempo" me invade, pero las ganas de acabar semejante reto son más fuertes.</p>
+  </div>
+  <!-- ============ ENGLISH ============ -->
+  <div class="en">
+    <p><span class="hora">3:15</span> in the morning. The first of the three alarms I had set goes off. Never in my life had I got up so early, and needless to say I barely slept that night. The start was at 5:00 and there was no other way if I wanted time for my breakfast: toast with olive oil, a banana and oat pancakes with honey, plus a good dose of coffee.</p>
+    <p>The forecast wasn't good: rain from 12:00 until 20:00, right when we'd be crossing the highest passes. Since the organisers let you drop bags at the summits, the day before I had sent up every piece of winter clothing I could gather. I didn't want hypothermia on the descents — the Marmotte had already taught me that lesson.</p>
+    <p>I step out onto the terrace of the apartment we've rented in Les Saisies — what a beautiful alpine ski resort, a pleasant surprise — and it's absolutely pouring. My heart sinks: the forecast had promised a dry start. Setting off in the dark and descending a mountain pass in the rain is the last thing I feel like doing. I even consider going back to bed, but at this point there's nothing for it but to take the start — too many months of preparation to quit before even beginning. Luckily, despite being at 1,600 m of altitude, it isn't cold: around 17 degrees.</p>
+    <p>4:30. I ride out towards the start, in no hurry. Thankfully it has stopped raining, though everything is obviously wet and treacherous. I arrive with 15 minutes to spare; there are plenty of riders already, but I want to stay at the very back — I plan to descend very slowly. A mix of "what am I doing here" and "what rotten luck with the weather" washes over me, but the desire to finish a challenge like this is stronger.</p>
+  </div>
+
+  <figure>
+    <img src="01-salida.jpg" alt="Salida nocturna: cientos de ciclistas con luces esperando el pistoletazo" loading="lazy">
+    <figcaption><span class="es">4:45 — En la parrilla de salida, todavía de noche</span><span class="en">4:45 — On the start line, still pitch dark</span></figcaption>
+  </figure>
+
+  <div class="es">
+    <p>5:00. Pistoletazo de salida. 580 valientes descendiendo por la carretera oscura, bien iluminada por todas las luces, como un reguero de luciérnagas blancas y rojas. Por fin se acaba el descenso; iré de los últimos seguro, he bajado extremando las precauciones. Enseguida el terreno se pone hacia arriba. Los dos primeros puertos son fáciles, Vaudagne y Col des Montets, lo que vendrían a ser de tercera categoría, voy cogiendo ritmo. Amanece pronto en los Alpes: a las 6:00 ya es totalmente de día y va a lucir un sol radiante en la primera parte de la ruta. Eso me anima. La visión del Mont Blanc al paso por Chamonix es sencillamente espectacular, menuda montaña.</p>
+  </div>
+  <div class="en">
+    <p>5:00. The gun goes off. 580 brave souls descending the dark road, lit up by all our lights, like a trail of white and red fireflies. The descent finally ends; I'll be among the last for sure — I came down taking every precaution. Soon the terrain tilts upwards. The first two climbs are easy, Vaudagne and the Col des Montets, third-category stuff, and I start finding my rhythm. Dawn comes early in the Alps: by 6:00 it's fully light and a radiant sun is going to shine on the first part of the route. That lifts me. The view of Mont Blanc passing through Chamonix is simply spectacular — what a mountain.</p>
+  </div>
+
+  <div class="duo">
+    <figure>
+      <img src="02-vaudagne.jpg" alt="Subiendo Vaudagne con el dorsal 63" loading="lazy">
+      <figcaption><span class="es">Primeras rampas en Vaudagne</span><span class="en">First ramps at Vaudagne</span></figcaption>
+    </figure>
+    <figure>
+      <img src="03-montblanc.jpg" alt="El macizo del Mont Blanc visto desde Chamonix al amanecer" loading="lazy">
+      <figcaption><span class="es">El Mont Blanc al paso por Chamonix</span><span class="en">Mont Blanc from Chamonix</span></figcaption>
+    </figure>
+  </div>
 
   <div class="puerto"><span class="km">KM 90</span><h3>Col de la Forclaz</h3><span class="alt">1.527 m</span></div>
-  <p>Siguiente puerto, el Col de la Forclaz, algo más serio ya, lo que vendría a ser un segunda categoría. Llevo muy buen ritmo y no paro de adelantar corredores. Objetivo: subir a 2,8-3,2 w/kg, imprescindible no pasarse de Z2 alta, Z3 baja durante las subidas. Bajada rapidísima a un valle precioso y llegamos a Martigny, ya en Suiza.</p>
-  <p>Primera parada para avituallarnos: km 110 y unos 1.800 m+ hasta ahora, a 27 km/h de media, y me encuentro genial. Eso sí, lo serio empezaba realmente ahora; no habíamos hecho más que calentar, y los siguientes cinco colosos no iban a ser tan fáciles de conquistar.</p>
+  <div class="es">
+    <p>Tercer puerto, el Col de la Forclaz, algo más serio ya, lo que vendría a ser un segunda categoría. Sigo a buen ritmo y no paro de adelantar corredores. Objetivo: subir a 3 w/kg, lo que es mi límite entre Z2 y Z3, básico no pasarse y regular: es un buen ritmo que puedo mantener mucho tiempo. Sigo comiendo, mi estrategia de nutrición era simple, alarma cada 45' en el Garmin para ir rotando gel de 30CH, barrita de 30CH y gel de 45, todo ello complementado con CH en un bidón siempre, para llegar al objetivo de ingerir 60-70CH por hora.</p>
+    <p>Bajada rapidísima a un valle precioso y llegamos a Martigny, ya en Suiza.</p>
+    <p>Primera parada para avituallarnos: km 110 y unos 1.800 m+ hasta ahora, a 27 km/h de media, y me encuentro genial. Eso sí, lo serio empezaba realmente ahora, no habíamos hecho más que calentar, y los siguientes cinco colosos no iban a ser tan fáciles de conquistar.</p>
+  </div>
+  <div class="en">
+    <p>Third climb, the Col de la Forclaz, a more serious affair now — second-category territory. I keep a good pace and don't stop overtaking riders. The target: climb at 3 w/kg, which is my threshold between Z2 and Z3. The key is not to overdo it and to pace steadily: it's a rhythm I can hold for a very long time. I keep eating; my nutrition strategy was simple — an alarm every 45 minutes on the Garmin, rotating a 30g-carb gel, a 30g-carb bar and a 45g gel, always topped up with carbs in a bottle, aiming to take in 60-70g of carbs per hour.</p>
+    <p>A lightning-fast descent into a gorgeous valley and we reach Martigny, in Switzerland now.</p>
+    <p>First feed stop: km 110 and around 1,800 m of climbing so far, averaging 27 km/h, and I feel fantastic. That said, the serious part was only just beginning — we had merely warmed up, and the next five giants would not be conquered so easily.</p>
+  </div>
+
+  <div class="duo">
+    <figure>
+      <img src="04-primeras-horas.jpg" alt="Rodando entre bosques a primera hora de la mañana" loading="lazy">
+      <figcaption><span class="es">Primeras horas, todo por delante</span><span class="en">Early hours, everything still ahead</span></figcaption>
+    </figure>
+    <figure>
+      <img src="05-forclaz.jpg" alt="Subiendo la Forclaz con el glaciar al fondo" loading="lazy">
+      <figcaption><span class="es">La Forclaz, con el glaciar de testigo</span><span class="en">The Forclaz, glacier watching over us</span></figcaption>
+    </figure>
+  </div>
+
+  <figure>
+    <img src="06-valle-forclaz.jpg" alt="Rodando por el valle tras la bajada de la Forclaz" loading="lazy">
+    <figcaption><span class="es">Camino del valle tras la Forclaz</span><span class="en">Down the valley after the Forclaz</span></figcaption>
+  </figure>
 
   <div class="puerto"><span class="km">KM 125</span><h3>Champex</h3><span class="alt">11 km · 8,1 %</span></div>
-  <p>El primero de ellos es Champex. En el perfil de la prueba no destaca —imaginad los otros—, y sin embargo estamos hablando de 11 km al 8,1 % de media, unos números muy similares a los del Alpe d’Huez. Me van estos puertos y, cuando me quiero dar cuenta, ya estoy arriba. Me paro en una fuente junto al lago del mismo nombre; es un sitio precioso y bien merece la pena detenerse a tomar unas fotos. El día, hasta ahora, espectacular.</p>
+  <div class="es">
+    <p>El primero de ellos es Champex. En el perfil de la prueba no destaca —imaginad los otros— y sin embargo estamos hablando de 11 km al 8,1 % de media, unos números muy similares a los del Alpe d'Huez. Me van estos puertos y, cuando me quiero dar cuenta, ya estoy arriba. Me paro en una fuente junto al lago del mismo nombre; es un sitio precioso y bien merece la pena detenerse a tomar unas fotos. El día, hasta ahora, espectacular.</p>
+  </div>
+  <div class="en">
+    <p>The first of them is Champex. It barely stands out on the race profile — imagine the others — and yet we're talking about 11 km at 8.1% average, numbers very similar to Alpe d'Huez. These climbs suit me and, before I know it, I'm at the top. I stop at a fountain by the lake of the same name; it's a beautiful spot, well worth pausing for a few photos. The day, so far, spectacular.</p>
+  </div>
+
+  <figure>
+    <img src="07-champex.jpg" alt="Selfie junto al lago de Champex" loading="lazy">
+    <figcaption><span class="es">Parada obligada en el lago de Champex</span><span class="en">Mandatory stop at Lac de Champex</span></figcaption>
+  </figure>
 
   <div class="puerto"><span class="km">KM 170</span><h3>Grand Saint Bernard</h3><span class="alt">35 km · 5,1 % · 2.450 m</span></div>
-  <p>Tras una corta bajada llega la gran bestia parda del día, el Grand Saint Bernard: 35 km al 5,1 %, con los últimos 5 km al 9 %, elevándose hasta los 2.450 m. Una friolera de 1.900 m de desnivel en un solo puerto, casi dos horas de ascensión. Cojo ritmo crucero y sigo adelantando corredores, lo cual me motiva; sin embargo, el tráfico de este puerto y sus largos túneles hacen que vayas incómodo todo el rato. Y lo peor está por llegar: a 2 km de la cima el cielo se vuelve negro y de repente empieza a diluviar. La temperatura arriba cae hasta los 10 grados; las peores previsiones se han cumplido. Por suerte había dejado en la cima cubrebotas, chaqueta y guantes de invierno. Aun así, el aguacero hacía impracticable bajar, por lo que me resguardo en un bar durante 15 minutos. El agua amaina un poco y me lanzo al descenso, muerto de frío pese a la ropa: la sensación térmica debía de rondar los 5 grados a esa altitud. Primera curva y casi me la pego; frenos de zapata y ruedas de carbono hacen que la bici literalmente no frene. Bajo más despacio de lo que subo.</p>
-  <p>Misterios de los climas de montaña: cuando llego a la cota 1.800 aparece el sol y la carretera está más seca, así que me dejo caer hasta el Valle de Aosta, ya en Italia. La diferencia de temperatura es abismal —de 10 grados arriba a 30 en el valle—, por lo que me quito toda la ropa de invierno y la tiro a la basura: no podía cargar con ella y era vieja, precisamente en previsión de esta situación.</p>
+  <div class="es">
+    <p>Tras una corta bajada llega la gran bestia parda del día, el paso de Suiza a Italia, el Grand Saint Bernard: 35 km al 5,1 %, con los últimos 5 km al 9 %, elevándose hasta los 2.450 m. Una friolera de 1.900 m de desnivel en un solo puerto, más de dos horas de ascensión. Cojo ritmo crucero y sigo adelantando corredores, lo cual me motiva; sin embargo, el tráfico de este puerto y sus largos túneles hacen que vayas incómodo todo el rato. Y lo peor está por llegar: a 2 km de la cima el cielo se vuelve negro y de repente empieza a diluviar. La temperatura arriba cae hasta los 10 grados; las peores previsiones se han cumplido. Por suerte había dejado en la cima cubrebotas, chaqueta y guantes de invierno. Aun así, el aguacero hacía impracticable bajar, por lo que me resguardo en un bar durante 15 minutos. El agua amaina un poco y me lanzo al descenso, muerto de frío pese a la ropa: la sensación térmica debía de rondar los 5 grados a esa altitud. Primera curva y casi me la pego; frenos de zapata y ruedas de carbono hacen que la bici literalmente no frene. Bajo más despacio de lo que subo.</p>
+    <p>Misterios de los climas de montaña: cuando llego a la cota 1.800 aparece el sol y la carretera está más seca, así que me dejo caer hasta el Valle de Aosta, ya en Italia. La diferencia de temperatura es abismal —de 10 grados arriba a 30 en el valle—, por lo que me quito toda la ropa de invierno y la tiro a la basura: no podía cargar con ella y era vieja, precisamente en previsión de esta situación.</p>
+  </div>
+  <div class="en">
+    <p>After a short descent comes the great beast of the day, the crossing from Switzerland into Italy, the Grand Saint Bernard: 35 km at 5.1%, with the final 5 km at 9%, rising to 2,450 m. A staggering 1,900 m of climbing in a single pass, more than two hours of ascent. I settle into cruise mode and keep passing riders, which motivates me; the traffic on this climb and its long tunnels, however, keep you on edge the whole time. And the worst is yet to come: 2 km from the summit the sky turns black and it suddenly starts pouring. The temperature at the top drops to 10 degrees; the worst forecasts have come true. Luckily I had left overshoes, a jacket and winter gloves at the summit. Even so, the downpour made descending impossible, so I shelter in a bar for 15 minutes. The rain eases a little and I launch into the descent, frozen stiff despite the clothing: the wind chill must have been around 5 degrees at that altitude. First corner and I nearly crash; rim brakes and carbon wheels mean the bike literally will not stop. I descend slower than I climb.</p>
+    <p>Mysteries of mountain weather: when I reach 1,800 m the sun comes out and the road is drier, so I let myself roll all the way down to the Aosta Valley, in Italy now. The temperature difference is staggering — from 10 degrees up top to 30 in the valley — so I strip off all the winter clothing and throw it in the bin: I couldn't carry it, and it was old gear, chosen precisely with this situation in mind.</p>
+  </div>
+
+  <figure>
+    <img src="08-grand-saint-bernard.jpg" alt="Vista aérea de las curvas de herradura del Grand Saint Bernard junto al lago" loading="lazy">
+    <figcaption><span class="es">Las lazadas del Grand Saint Bernard, techo del día a 2.450 m</span><span class="en">The hairpins of the Grand Saint Bernard, the day's roof at 2,450 m</span></figcaption>
+  </figure>
 
   <div class="puerto"><span class="km">KM 255</span><h3>Petit Saint Bernard</h3><span class="alt">15 km · 6 % · 2.200 m</span></div>
-  <p>Iniciamos otro de los peores tramos de la ruta, un largo camino hasta el siguiente puerto, siempre picando hacia arriba y con muchísimo tráfico y viento en contra. Llegamos por fin al pie del tercer coloso del día, el Petit Saint Bernard, que de pequeño no tiene nada: unos 15 km al 6 % de media, coronando a 2.200 metros. No es moco de pavo. Se vuelve a poner a diluviar, buen momento. Me pongo el chubasquero y los cubrebotas, y a subir. Sigo pudiendo mantener un buen ritmo constante de 2,8-3 w/kg y coincido durante unos 10 km con un ciclista portugués muy agradable, con quien converso en inglés, pero me dice que va a bajar el ritmo y sigo solo. A 5 km de la cima, de repente, mi estómago empieza a quejarse y me avisa de que no puede tomar nada más: se me cierra totalmente. Por suerte, al coronar ha dejado de llover y paro a hacer unas fotos. El sitio, cómo no, espectacular, con estatua de perro San Bernardo incluida.</p>
+  <div class="es">
+    <p>Iniciamos otro de los peores tramos de la ruta, 30 km hasta el siguiente puerto, siempre picando hacia arriba y con muchísimo tráfico y viento en contra, los ciclistas vamos tan desperdigados a estas alturas que no hay grupos, luchas solo. Llego por fin al pie del tercer coloso del día, el Petit Saint Bernard, que de pequeño no tiene nada: unos 15 km al 6 % de media, coronando a 2.200 metros. No es moco de pavo. Se vuelve a poner a diluviar, buen momento. Me pongo el chubasquero y los cubrebotas, y a subir. Sigo pudiendo mantener un buen ritmo constante de 2,8-3 w/kg y coincido durante unos 10 km con un ciclista portugués muy agradable, con quien converso en inglés, pero me dice que va a bajar el ritmo y sigo solo. A 5 km de la cima, de repente, mi estómago empieza a quejarse y me avisa de que no puede tomar nada más: se me cierra totalmente, gran problema pues aún queda bastante. Por suerte, al coronar ha dejado de llover y paro a hacer unas fotos. El sitio, cómo no, espectacular, con estatua de perro San Bernardo incluida.</p>
+  </div>
+  <div class="en">
+    <p>We begin another of the worst stretches of the route: 30 km to the next climb, always false-flat uphill, with heavy traffic and a headwind. By this point the riders are so scattered that there are no groups — you fight alone. I finally reach the foot of the third giant of the day, the Petit Saint Bernard, which has nothing "petit" about it: some 15 km at 6% average, topping out at 2,200 metres. No small thing. It starts pouring again — perfect timing. Rain jacket and overshoes on, and up we go. I can still hold a steady 2.8-3 w/kg and I ride for about 10 km with a very friendly Portuguese cyclist, chatting in English, until he tells me he's going to ease off and I continue alone. Five kilometres from the summit, out of nowhere, my stomach starts complaining and tells me it can't take anything more: it shuts down completely — a big problem, because there's still a long way to go. Luckily, by the top it has stopped raining and I stop for some photos. The place, of course, spectacular — Saint Bernard dog statue included.</p>
+  </div>
+
+  <div class="duo">
+    <figure>
+      <img src="09-petit-saint-bernard-lluvia.jpg" alt="Subiendo el Petit Saint Bernard con chubasquero amarillo bajo la lluvia" loading="lazy">
+      <figcaption><span class="es">Con el chubasquero, plantando cara al Petit Saint Bernard</span><span class="en">Rain jacket on, taking on the Petit Saint Bernard</span></figcaption>
+    </figure>
+    <figure>
+      <img src="10-perro-san-bernardo.jpg" alt="Estatua del perro San Bernardo en la cima del Col du Petit Saint Bernard" loading="lazy">
+      <figcaption><span class="es">En la cima, con estatua de San Bernardo incluida</span><span class="en">At the summit — Saint Bernard statue included</span></figcaption>
+    </figure>
+  </div>
+
+  <figure>
+    <img src="11-alta-montana.jpg" alt="Refugio de piedra en los prados alpinos del Petit Saint Bernard" loading="lazy">
+    <figcaption><span class="es">Alta montaña en el Petit Saint Bernard</span><span class="en">High mountains at the Petit Saint Bernard</span></figcaption>
+  </figure>
 
   <div class="puerto"><span class="km">KM 292</span><h3>Cormet de Roselend</h3><span class="alt">19 km · 6 %</span></div>
-  <p>Inicio la bajada y llego a la localidad de Bourg-Saint-Maurice. Solo 57 km a meta y dos puertos, «solo» 2.000 m+ por delante. El cuarto coloso en discordia es el Cormet de Roselend, otra ascensión preciosa, de las que más me gustaron, pero sus 19 km al 6 % de media se cobran su peaje: mi ritmo empieza a descender, no soy capaz de subir a más de 2,5 w/kg, las fuerzas ya flaquean. Sigo sin poder tomar ningún gel. En el avituallamiento de arriba al menos como fruta y galletas; eso sí me entra, algo es algo.</p>
+  <div class="es">
+    <p>Inicio la bajada y llego a la localidad de Bourg-Saint-Maurice. Solo 57 km a meta y dos puertos, «solo» otros 2.000 m+ por delante. El cuarto coloso en discordia es el Cormet de Roselend, otra ascensión preciosa, de las que más me gustaron, pero sus 19 km al 6 % de media se cobran su peaje: mi ritmo empieza a descender, no soy capaz de subir a más de 2,5 w/kg, las fuerzas ya flaquean y además sigo sin poder tomar ningún gel. En el avituallamiento de arriba al menos como fruta y galletas; eso sí me entra, algo es algo, pero no suficiente.</p>
+  </div>
+  <div class="en">
+    <p>I start the descent and reach the town of Bourg-Saint-Maurice. Only 57 km to the finish and two climbs — "only" another 2,000 m+ ahead. The fourth giant in question is the Cormet de Roselend, another gorgeous ascent, one of my favourites, but its 19 km at 6% average take their toll: my pace starts dropping, I can't push above 2.5 w/kg, my strength is fading, and on top of that I still can't stomach a single gel. At the feed station on top I at least manage fruit and biscuits; that goes down — something is something, but not enough.</p>
+  </div>
 
-  <div class="puerto"><span class="km">KM 330</span><h3>Les Saisies</h3><span class="alt">15 km · 6 % · Meta</span></div>
-  <p>Me dejo caer sin apenas pedalear y llego a la base del último puerto, Les Saisies, donde tengo el apartamento arriba y cuyo camino conozco bien de haberlo subido varias veces en coche. Sobre el papel no es complicado, pero sé que sus 15 km al 6 % se van a sentir como si estuviera ascendiendo el propio Mont Blanc. Y así es: una subida que en condiciones normales me debería llevar una hora me cuesta una hora y media. Mi ritmo ha decaído mucho, pero sé que ya está hecho; me da igual todo, solo pienso en llegar. Voy ya solo, nadie por delante, nadie por detrás.</p>
-  <p>Son casi las 22:00 y se ha hecho de noche; enciendo la luz delantera. Me ha tocado parar más de la cuenta por la lluvia —habría podido ganar media hora sin problema—, pero todo eso ya da igual. Dos kilómetros, ya veo el pueblo. Último kilómetro, muy empinado, aunque a mí me parece literalmente vertical. No siento las piernas; subo porque la gente del pueblo no para de aplaudir. Y por fin llego a la meta, donde me espera mi mujer. Al parar no puedo evitar echarme a llorar mientras la abrazo.</p>
-  <p>La experiencia ha sido increíble y la organización de la carrera, muy buena. Lástima del tiempo, pero en estos sitios ya se sabe.</p>
+  <div class="duo">
+    <figure>
+      <img src="12-cormet-roselend.jpg" alt="Hito del Cormet de Roselend: 4 km a la cima al 8 por ciento" loading="lazy">
+      <figcaption><span class="es">Cormet de Roselend: 4 km a cima y el 8 % por delante</span><span class="en">Cormet de Roselend: 4 km to go, 8% ahead</span></figcaption>
+    </figure>
+    <figure>
+      <img src="13-lago-roselend.jpg" alt="El lago de Roselend al atardecer" loading="lazy">
+      <figcaption><span class="es">El lago de Roselend, 21:04 — atardece y aún queda un puerto</span><span class="en">Lac de Roselend, 9:04 pm — sunset, one climb to go</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="puerto"><span class="km">KM 330</span><h3>Les Saisies</h3><span class="alt">15 km · 6 % · <span class="es">Meta</span><span class="en">Finish</span></span></div>
+  <div class="es">
+    <p>Me dejo caer sin apenas pedalear y llego a la base del último puerto, Les Saisies, donde tengo el apartamento arriba y cuyo camino conozco bien de haberlo subido varias veces en coche. Sobre el papel no es complicado, pero sé que sus 15 km al 6 % se van a sentir como si estuviera ascendiendo el propio Mont Blanc. Y así es: una subida que en condiciones normales me debería llevar una hora me cuesta una hora y media. Mi ritmo ha decaído mucho, pero sé que ya está hecho; me da igual todo, solo pienso en llegar. Voy ya solo, nadie por delante, nadie por detrás.</p>
+    <p>Son casi las 22:00 y se ha hecho de noche; enciendo la luz delantera. Me ha tocado parar más de la cuenta por la lluvia —habría podido ganar más de media hora sin problema—, pero todo eso ya da igual. Dos kilómetros, ya veo el pueblo. Último kilómetro, muy empinado, aunque a mí me parece literalmente vertical. No siento las piernas; subo porque la gente del pueblo no para de aplaudir y gritar el clásico "Allez, allez!". Y por fin llego a la meta, donde me espera mi mujer. Al parar no puedo evitar echarme a llorar mientras la abrazo.</p>
+    <p>La experiencia ha sido increíble y la organización de la carrera, muy buena. Lástima del tiempo, pero en estos sitios ya se sabe.</p>
+  </div>
+  <div class="en">
+    <p>I coast down barely pedalling and reach the base of the final climb, Les Saisies, where my apartment waits at the top and whose road I know well from driving it several times. On paper it isn't hard, but I know its 15 km at 6% are going to feel like climbing Mont Blanc itself. And so it is: an ascent that should take me an hour in normal conditions costs me an hour and a half. My pace has collapsed, but I know it's done; nothing matters anymore, I only think about arriving. I'm alone now — nobody ahead, nobody behind.</p>
+    <p>It's almost 22:00 and night has fallen; I switch on my front light. The rain forced me to stop more than I should have — I could easily have saved over half an hour — but none of that matters now. Two kilometres, I can see the village. Final kilometre, very steep, though to me it feels literally vertical. I can't feel my legs; I climb because the people in the village won't stop clapping and shouting the classic "Allez, allez!". And at last I reach the finish line, where my wife is waiting. As I stop, I can't help bursting into tears as I hug her.</p>
+    <p>The experience has been incredible and the race organisation excellent. A shame about the weather, but in these places, that's how it goes.</p>
+  </div>
+
+  <div class="duo">
+    <figure>
+      <img src="14-meta.jpg" alt="Cruzando el arco de meta del Tour du Mont Blanc de noche" loading="lazy">
+      <figcaption><span class="es">21:47 — 330 km después, la meta</span><span class="en">9:47 pm — 330 km later, the finish</span></figcaption>
+    </figure>
+    <figure>
+      <img src="15-meta-mujer.jpg" alt="Selfie en meta con mi mujer, medalla al cuello" loading="lazy">
+      <figcaption><span class="es">La mejor recompensa esperaba en meta</span><span class="en">The best reward was waiting at the line</span></figcaption>
+    </figure>
+  </div>
 </article>
 
 <section class="ficha">
   <div class="grid">
-    <div><div class="num">168<span>/580</span></div><div class="lbl">Clasificación</div></div>
-    <div><div class="num">120</div><div class="lbl">Retirados</div></div>
-    <div><div class="num">17h02</div><div class="lbl">Tiempo total</div></div>
-    <div><div class="num">15h30</div><div class="lbl">Tiempo efectivo</div></div>
+    <div><div class="num">168<span>/580</span></div><div class="lbl"><span class="es">Clasificación</span><span class="en">Position</span></div></div>
+    <div><div class="num">120</div><div class="lbl"><span class="es">Retirados</span><span class="en">DNFs</span></div></div>
+    <div><div class="num">17h02</div><div class="lbl"><span class="es">Tiempo total</span><span class="en">Total time</span></div></div>
+    <div><div class="num">15h30</div><div class="lbl"><span class="es">Tiempo efectivo</span><span class="en">Moving time</span></div></div>
   </div>
-  <p class="cierre">Al día siguiente miro la clasificación. Aquí eso da igual, lo importante es llegar.<br>¿Volveremos el año que viene? ¡El sitio bien lo vale!</p>
+  <p class="cierre">
+    <span class="es">Al día siguiente miro la clasificación. Aquí eso da igual, lo importante es llegar. Una prueba muy dura, agravada por las condiciones meteorológicas.<br>¿Volveremos el año que viene? ¡El sitio bien lo vale!</span>
+    <span class="en">The next day I check the results. Here that hardly matters — what counts is finishing. A very hard event, made harder by the weather.<br>Will we be back next year? The place is well worth it!</span>
+  </p>
 </section>
-<footer><p>Tour du Mont Blanc Cyclo · Les Saisies · Francia · Suiza · Italia</p></footer>
+
+<section class="contacto">
+  <p><span class="es">¿Comentarios, dudas sobre la ruta o la preparación?</span><span class="en">Questions about the route or the preparation?</span></p>
+  <a id="btn-email" href="#"><span class="es">Escríbeme</span><span class="en">Email me</span></a>
+</section>
+
+<footer><p>Tour du Mont Blanc Cyclo · Les Saisies · <span class="es">Francia · Suiza · Italia</span><span class="en">France · Switzerland · Italy</span></p></footer>
+
+<script>
+(function(){
+  /* ---- idioma ---- */
+  var btn = document.getElementById('btn-idioma');
+  function setLang(l){
+    document.body.classList.remove('lang-es','lang-en');
+    document.body.classList.add('lang-' + l);
+    document.documentElement.lang = l;
+    btn.textContent = (l === 'es') ? '\uD83C\uDDEC\uD83C\uDDE7 English' : '\uD83C\uDDEA\uD83C\uDDF8 Espa\u00f1ol';
+    try { localStorage.setItem('lang', l); } catch(e){}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch(e){}
+  if (saved === 'en' || saved === 'es') { setLang(saved); }
+  btn.addEventListener('click', function(){
+    setLang(document.body.classList.contains('lang-es') ? 'en' : 'es');
+  });
+
+  /* ---- contacto (email ofuscado) ---- */
+  var u = 'arevreco', d = 'moc.liamg';
+  function rev(s){ return s.split('').reverse().join(''); }
+  document.getElementById('btn-email').addEventListener('click', function(e){
+    e.preventDefault();
+    location.href = 'mailto:' + rev(u) + '@' + rev(d) +
+      '?subject=' + encodeURIComponent('Tour du Mont Blanc');
+  });
+})();
+</script>
 
 </body>
 </html>
