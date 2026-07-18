@@ -300,7 +300,7 @@
 
 <section class="ficha">
   <div class="grid">
-    <div><div class="num">168<span>/580</span></div><div class="lbl"><span class="es">Clasificación</span><span class="en">Position</span></div></div>
+    <div><div class="num"><span>168</span>/580</div><div class="lbl"><span class="es">Clasificación</span><span class="en">Position</span></div></div>
     <div><div class="num">120</div><div class="lbl"><span class="es">Retirados</span><span class="en">DNFs</span></div></div>
     <div><div class="num">17h02</div><div class="lbl"><span class="es">Tiempo total</span><span class="en">Total time</span></div></div>
     <div><div class="num">15h30</div><div class="lbl"><span class="es">Tiempo efectivo</span><span class="en">Moving time</span></div></div>
@@ -350,14 +350,20 @@
   });
 
   /* ---- contador discreto (GoatCounter) ---- */
-  fetch('https://oscartmb.goatcounter.com/counter//TOTAL.json')
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      if (d && d.count) {
-        document.getElementById('contador').textContent = d.count.trim() + ' visitas / visits';
-      }
-    })
-    .catch(function(){ /* si falla, no se muestra nada */ });
+  function pintaContador(d){
+    if (d && d.count) {
+      document.getElementById('contador').textContent = d.count.trim() + ' visitas / visits';
+    }
+  }
+  fetch('https://oscartmb.goatcounter.com/counter/TOTAL.json')
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(pintaContador)
+    .catch(function(){
+      fetch('https://oscartmb.goatcounter.com/counter//TOTAL.json')
+        .then(function(r){ return r.json(); })
+        .then(pintaContador)
+        .catch(function(){ /* si falla, no se muestra nada */ });
+    });
 })();
 </script>
 
