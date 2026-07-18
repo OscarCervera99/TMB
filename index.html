@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi aventura en el Tour du Mont Blanc — 330 km · 8.300 m+</title>
-<meta name="description" content="Crónica del Tour du Mont Blanc Cyclo: 330 km, 8.300 m de desnivel, siete puertos, tres países y una tormenta en el Grand Saint Bernard. / My Tour du Mont Blanc Cyclo story.">
+<title>Tour du Mont Blanc Cyclo: crónica de mi aventura — 330 km y 8.300 m+ (ES/EN)</title>
+<meta name="description" content="Crónica del Tour du Mont Blanc Cyclo: 330 km, 8.300 m de desnivel, ocho puertos, tres países y una tormenta en el Grand Saint Bernard. / My Tour du Mont Blanc Cyclo story.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Tour du Mont Blanc Cyclo">
 <meta property="og:title" content="Tour du Mont Blanc: the story — 330 km · 8.300 m+">
@@ -18,6 +18,22 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tour du Mont Blanc: the story — 330 km · 8.300 m+">
 <meta name="twitter:image" content="https://oscarcervera99.github.io/TMB/14-meta.jpg">
+<link rel="canonical" href="https://oscarcervera99.github.io/TMB/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mi aventura en el Tour du Mont Blanc — crónica del TMB Cyclo",
+  "alternativeHeadline": "My Tour du Mont Blanc adventure — TMB Cyclo race report",
+  "description": "Crónica del Tour du Mont Blanc Cyclo: 330 km, 8.300 m de desnivel, ocho puertos y tres países en un día. Estrategia de potencia y nutrición, tormenta a 2.450 m y llegada nocturna a Les Saisies.",
+  "image": "https://oscarcervera99.github.io/TMB/14-meta.jpg",
+  "author": { "@type": "Person", "name": "Óscar Cervera" },
+  "datePublished": "2026-07-18",
+  "inLanguage": ["es", "en"],
+  "url": "https://oscarcervera99.github.io/TMB/",
+  "keywords": "Tour du Mont Blanc Cyclo, TMB Cyclo, crónica, race report, ciclismo, granfondo, Grand Saint Bernard, Cormet de Roselend, Les Saisies"
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -109,7 +125,7 @@
   <div class="datos">
     <span><b>330</b>km</span>
     <span><b>8.300</b>m+</span>
-    <span><b>7</b><span class="es">puertos</span><span class="en">climbs</span></span>
+    <span><b>8</b><span class="es">puertos</span><span class="en">climbs</span></span>
     <span><b>3</b><span class="es">países</span><span class="en">countries</span></span>
     <span><b>17h02</b>total</span>
   </div>
@@ -300,7 +316,11 @@
   <a id="btn-email" href="#"><span class="es">Escríbeme</span><span class="en">Email me</span></a>
 </section>
 
-<footer><p>Tour du Mont Blanc Cyclo · Les Saisies · <span class="es">Francia · Suiza · Italia</span><span class="en">France · Switzerland · Italy</span></p></footer>
+<footer>
+  <p>Tour du Mont Blanc Cyclo · Les Saisies · <span class="es">Francia · Suiza · Italia</span><span class="en">France · Switzerland · Italy</span></p>
+  <p id="contador" style="margin-top:.6rem;font-size:.65rem;letter-spacing:.1em;color:#39414d"></p>
+</footer>
+<script data-goatcounter="https://oscartmb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
 (function(){
@@ -328,6 +348,16 @@
     location.href = 'mailto:' + rev(u) + '@' + rev(d) +
       '?subject=' + encodeURIComponent('Tour du Mont Blanc');
   });
+
+  /* ---- contador discreto (GoatCounter) ---- */
+  fetch('https://oscartmb.goatcounter.com/counter//TOTAL.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if (d && d.count) {
+        document.getElementById('contador').textContent = d.count.trim() + ' visitas / visits';
+      }
+    })
+    .catch(function(){ /* si falla, no se muestra nada */ });
 })();
 </script>
 
