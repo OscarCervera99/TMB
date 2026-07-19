@@ -105,6 +105,12 @@
   .ficha .lbl{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;color:#aeb7c2;margin-top:.4rem}
   .cierre{max-width:680px;margin:2.8rem auto 0;font-style:italic;font-size:1.15rem;color:#dfe4ea}
 
+  /* ---------- COMENTARIOS ---------- */
+  .comentarios{background:var(--papel);padding:3rem 1.4rem}
+  .comentarios .caja{max-width:720px;margin:0 auto}
+  .comentarios h2{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.25em;font-size:.9rem;color:var(--gris);text-align:center;margin-bottom:.4rem}
+  .comentarios .nota{font-family:var(--display);font-weight:500;letter-spacing:.08em;font-size:.78rem;color:var(--gris);text-align:center;margin-bottom:1.5rem;text-transform:uppercase}
+
   /* ---------- CONTACTO ---------- */
   .contacto{background:var(--noche);text-align:center;padding:1.5rem 1.5rem 3.2rem}
   .contacto p{font-family:var(--display);text-transform:uppercase;letter-spacing:.2em;font-size:.85rem;color:#aeb7c2;margin-bottom:1rem}
@@ -311,8 +317,23 @@
   </p>
 </section>
 
+<section class="comentarios">
+  <div class="caja">
+    <h2><span class="es">Comentarios</span><span class="en">Comments</span></h2>
+    <p class="nota"><span class="es">Se publican tras moderación</span><span class="en">Published after moderation</span></p>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="8c588aea-ff50-4dab-a2f4-60a3a6b647aa"
+      data-page-id="tmb-cronica"
+      data-page-url="https://oscarcervera99.github.io/TMB/"
+      data-page-title="Tour du Mont Blanc: the story"
+      data-theme="light"
+    ></div>
+  </div>
+</section>
+
 <section class="contacto">
-  <p><span class="es">¿Comentarios, dudas sobre la ruta o la preparación?</span><span class="en">Questions about the route or the preparation?</span></p>
+  <p><span class="es">¿Prefieres contactar conmigo en privado?</span><span class="en">Prefer to get in touch privately?</span></p>
   <a id="btn-email" href="#"><span class="es">Escríbeme</span><span class="en">Email me</span></a>
 </section>
 
@@ -367,5 +388,7 @@
 })();
 </script>
 
+<script defer src="https://cusdis.com/js/widget/lang/es.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>
