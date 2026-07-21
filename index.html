@@ -71,8 +71,8 @@
     color:#eef1f5;text-align:center;padding:6.5rem 1.5rem 5rem}
   .hero .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.35em;text-transform:uppercase;font-size:.85rem;color:#ff7b74}
   .hero h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.02;letter-spacing:.02em;margin:.6rem 0 1.2rem;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-  .hero .datos{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:#c2cad4}
-  .hero .datos b{color:#fff;font-weight:700;margin-right:.35rem}
+  .hero .datos{display:flex;justify-content:center;gap:2.6rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.6vw,1.5rem);letter-spacing:.12em;text-transform:uppercase;color:#c2cad4}
+  .hero .datos b{color:#fff;font-weight:700;margin-right:.4rem;font-size:1.35em}
 
   /* ---------- PERFIL OFICIAL ---------- */
   .perfil{max-width:1020px;margin:0 auto;padding:2.8rem 1.25rem .5rem}
@@ -98,6 +98,7 @@
   .duo figure{margin:0}
   .duo img{height:100%;object-fit:cover;aspect-ratio:3/4}
   @media(max-width:560px){.duo{grid-template-columns:1fr}.duo img{aspect-ratio:4/3}}
+  .duo-h img{aspect-ratio:3/2}
 
   /* ---------- FICHA FINAL ---------- */
   .ficha{background:var(--noche);color:#eef1f5;padding:3.5rem 1.5rem 2.5rem;text-align:center}
@@ -274,7 +275,7 @@
     <p>I start the descent and reach the town of Bourg-Saint-Maurice. Only 57 km to the finish and two climbs — "only" another 2,000 m+ ahead. The fourth giant in question is the Cormet de Roselend, another gorgeous ascent, one of my favourites, but its 19 km at 6% average take their toll: my pace starts dropping, I can't push above 2.5 w/kg, my strength is fading, and on top of that I still can't stomach a single gel. At the feed station on top I at least manage fruit and biscuits; that goes down — something is something, but not enough.</p>
   </div>
 
-  <div class="duo">
+  <div class="duo duo-h">
     <figure>
       <img src="12-cormet-roselend.jpg" alt="Hito del Cormet de Roselend: 4 km a la cima al 8 por ciento" loading="lazy">
       <figcaption><span class="es">Cormet de Roselend: 4 km a cima y el 8 % por delante</span><span class="en">Cormet de Roselend: 4 km to go, 8% ahead</span></figcaption>
@@ -311,6 +312,7 @@
 
 <section class="ficha">
   <div class="grid">
+    <div><div class="num">330<small style="font-size:.55em;color:#aeb7c2"> km</small></div><div class="lbl"><span class="es">Distancia</span><span class="en">Distance</span></div></div>
     <div><div class="num"><span>168</span>/580</div><div class="lbl"><span class="es">Clasificación</span><span class="en">Position</span></div></div>
     <div><div class="num">120</div><div class="lbl"><span class="es">Retirados</span><span class="en">DNFs</span></div></div>
     <div><div class="num">17h02</div><div class="lbl"><span class="es">Tiempo total</span><span class="en">Total time</span></div></div>
